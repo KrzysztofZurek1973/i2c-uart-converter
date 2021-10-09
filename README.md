@@ -4,8 +4,9 @@ I2C-UART converter for 2-way communication between UART and I2C devices.
 
 Parameters:
 
-* UART: 38400 bps, 8 bits, 1 stop bit, buffer 256 bytes
-* I2C: CLK max 100 kHz, buffer 256 bytes.
+* UART: 38400 bps, 8 bits, 1 stop bit, buffer 256 bytes,
+* I2C: CLK max 100 kHz, buffer 256 bytes,
+* clock source: internal RC oscilator, 8 MHz.
 
 For tests use e.g. another AVR microcontroller with code included in ```test-transmitter```.
 
@@ -28,6 +29,12 @@ Test transmitter sends 1000 lines of numbers + ASCII low letters, e.g.:
 after that it stops for 2 seconds and continues.
 
 When the receiving buffer of the converter is full converter sends NACK and test transmitter changes the next character into "*".
+
+For programming use:
+
+* makefile flash (default programmer: jtag3isp + avrdude)
+* makefile lfuse (low fuse byte)
+* makefile hfuse (high fuse byte)
 
 ## Links
 
