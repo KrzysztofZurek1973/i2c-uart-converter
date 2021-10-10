@@ -37,9 +37,9 @@ After receiving NACK the I2C sender should stop transmission for the while. In `
 
 For programming use:
 
-* makefile flash (default programmer: jtag3isp + avrdude)
-* makefile lfuse (low fuse byte)
-* makefile hfuse (high fuse byte)
+* make flash (default programmer: jtag3isp + avrdude)
+* make lfuse (low fuse byte)
+* make hfuse (high fuse byte)
 
 ## Links
 
