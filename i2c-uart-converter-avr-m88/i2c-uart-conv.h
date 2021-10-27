@@ -64,17 +64,19 @@ typedef enum {STOPPED, SENDING, RECEIVING, BLOCKED_RECEIVING} twi_state_t;
 // Define here the global static variables
 u8_t twst;
 u8_t twi_byte_cnt = 0;
-bool twi_send_start = false;
+bool twi_data_ready_to_send = false;
+bool stop_sent = false;
+bool timer1_running = false;
 twi_state_t twi_state = STOPPED;
 //buffer for data received by UART and ready for sending by I2C
 uint8_t twi_out_buff[BUFF_LEN_1];	
-uint16_t twi_out_buff_items = 0;
-uint16_t twi_out_buff_head = 0, twi_out_buff_tail = 0;
+int16_t twi_out_buff_items = 0;
+int16_t twi_out_buff_head = 0, twi_out_buff_tail = 0;
 
 //buffer for data received by I2C and ready for sending by UART
 uint8_t uart_out_buff[BUFF_LEN];
-uint16_t uart_out_buff_items = 0;
-uint16_t uart_out_buff_head = 0, uart_out_buff_tail = 0;
+int16_t uart_out_buff_items = 0;
+int16_t uart_out_buff_head = 0, uart_out_buff_tail = 0;
 
 bool udr_is_empty = true;
 uint8_t error_flags; 	//bit 0: uart_out_buffer is full
